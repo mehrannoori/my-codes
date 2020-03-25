@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/home/mehran/Telegram/Telegram
+Name=Telegram
+Comment=Telegram
+Icon=/home/mehran/Telegram/telegram-icon.png
