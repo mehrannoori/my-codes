@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body style="padding: 10px;">
+<div style="width: 500px; height: 350px; background-color: #c7c7c7; text-align: center;">
+    <br>
+    <h2>Random Selector</h2>
+    <h3>Enter your choises and leave space between them.</h3>
+    <input style="width: 450px; height: 40px; font-size: 20px;" type="text" id="userInput"><br><br>
+    <input type="button" value="Press to Choose" id="chooseItem" onclick="chooseItem()" style="height: 50px; font-size: 30px;"><br><br>
+    <div id="result" style="font-size: 40px;"></div>
+</div>
+<br>
+<div style="width: 500px; height: 250px; background-color: #c7c7c7; text-align: center;">
+    <br>
+    <h2>Cion Toss</h2>
+    <input type="button" value="Toss" id="coin" onclick="coinToss()" style="width: 100px; height: 100px; font-size: 30px;">
+</div>
+<br><br>
+<div style="width: 500px; height: 1px; background-color: rgb(100, 100, 100); text-align: center;"></div>
+<div style="width: 500px; padding: 5px; text-align: left; font-family: 'Courier New', Courier, monospace; font-size: 13px; color: rgb(100, 100, 100);">
+    Developed By Mehran Noori
+</div>
+
+
+<script>
+    function chooseItem(){
+        var choises = document.getElementById("userInput").value.split(" ")
+        var res = choises[Math.floor(Math.random() * choises.length)]
+        document.getElementById("result").innerHTML = res  
+    }
+
+    function coinToss(){
+        var res = Math.random()
+        if (res <= 0.5){
+            document.getElementById("coin").value = "Head"
+        }
+        else {
+            document.getElementById("coin").value = "Tail"
+        }
+    }
+</script>
+
+</body>
+</html> 
