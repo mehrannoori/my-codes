@@ -1,0 +1,44 @@
+# dockerize steps:
+
+
+# Dockerfile
+---------------------------------------------------------
+  # Pull base image
+  FROM python:3.10.4-slim-bullseye
+  
+  # Set environment variables
+  ENV PIP_DISABLE_PIP_VERSION_CHECK 1
+  ENV PYTHONDONTWRITEBYTECODE 1
+  ENV PYTHONUNBUFFERED 1
+  
+  # Set work directory
+  WORKDIR /code
+  
+  # Install dependencies
+  COPY ./requirements.txt .
+  RUN pip install -r requirements.txt
+  
+  # Copy project
+  COPY . .
+
+
+# docer-compose.yml
+---------------------------------------------------------
+  version: "3.9"
+  services:
+    web:
+      build: .
+      ports:
+        - "8000:8000"
+      command: python manage.py runserver 0.0.0.0:8000
+      volumes:
+        - .:/code
+
+# commands:
+---------------------------------------------------------
+docker info
+docker ps -a
+docker images
+docker build .
+docker-compose up
+docker-compose down
