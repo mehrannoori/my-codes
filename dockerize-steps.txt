@@ -1,3 +1,12 @@
+# configs:
+/etc/docker/daemon.json
+---------------------------------------------------------
+{
+"registry-mirrors": ["https://registry.docker.ir"]
+}
+
+sudo systemctl restart docker
+
 # dockerize steps:
 
 
